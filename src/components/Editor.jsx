@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { dashboardSlice } from '../store/dashboardSlice';
 import { editorSlice } from '../store/editorSlice';
 import ChartRenderer from './chartRenderer';
-import '../styles/editor.css';
+// import '../styles/editor.css';
 
 const Editor = () => {
   const dispatch = useDispatch();
