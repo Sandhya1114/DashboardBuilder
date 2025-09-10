@@ -706,3 +706,31 @@
     font-size: 2rem;
   }
 }
+/* Ensure chart containers have proper dimensions */
+.klip-chart-container {
+  width: 100% !important;
+  height: 160px !important;
+  min-height: 160px !important;
+  position: relative !important;
+}
+
+.klip-chart-container .recharts-wrapper {
+  width: 100% !important;
+  height: 100% !important;
+}
+
+/* Ensure parent containers don't constrain charts */
+.klip-content {
+  width: 100%;
+  height: auto;
+  min-height: 160px;
+}
+.recharts-responsive-container div{
+  height: 100%;
+  width: 100%;
+}
+.recharts-wrapper{
+
+  height: 100%;
+  width: 100%;
+}
