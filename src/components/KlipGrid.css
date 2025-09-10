@@ -1,0 +1,220 @@
+.klip-grid {
+  display: grid;
+  gap: 20px;
+  padding: 20px 0;
+  animation: fadeIn 0.3s ease-out;
+}
+
+.klip-grid.grid-small {
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 16px;
+}
+
+.klip-grid.grid-medium {
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 20px;
+}
+
+.klip-grid.grid-large {
+  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+  gap: 24px;
+}
+
+/* Empty State */
+.klip-grid-empty {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 60vh;
+  padding: 40px 20px;
+}
+
+.empty-state {
+  text-align: center;
+  max-width: 400px;
+}
+
+.empty-icon {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--bg-tertiary);
+  border-radius: 20px;
+  color: var(--text-muted);
+}
+
+.empty-state h3 {
+  font-size: 24px;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: 0 0 12px 0;
+}
+
+.empty-state p {
+  font-size: 16px;
+  color: var(--text-secondary);
+  margin: 0 0 32px 0;
+  line-height: 1.5;
+}
+
+.create-first-widget-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 24px;
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+
+.create-first-widget-btn:hover {
+  background-color: var(--primary-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(59, 130, 246, 0.3);
+}
+
+.create-first-widget-btn:active {
+  transform: translateY(0);
+}
+
+/* Grid Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.klip-card {
+  animation: slideInUp 0.3s ease-out;
+  animation-fill-mode: both;
+}
+
+.klip-card:nth-child(1) { animation-delay: 0.1s; }
+.klip-card:nth-child(2) { animation-delay: 0.2s; }
+.klip-card:nth-child(3) { animation-delay: 0.3s; }
+.klip-card:nth-child(4) { animation-delay: 0.4s; }
+.klip-card:nth-child(5) { animation-delay: 0.5s; }
+.klip-card:nth-child(6) { animation-delay: 0.6s; }
+.klip-card:nth-child(n+7) { animation-delay: 0.7s; }
+
+/* Responsive Grid */
+@media (max-width: 1200px) {
+  .klip-grid.grid-large {
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+  .klip-grid {
+    gap: 16px;
+    padding: 16px 0;
+  }
+  
+  .klip-grid.grid-small,
+  .klip-grid.grid-medium,
+  .klip-grid.grid-large {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  
+  .empty-state {
+    padding: 20px;
+  }
+  
+  .empty-icon {
+    width: 60px;
+    height: 60px;
+    margin-bottom: 20px;
+  }
+  
+  .empty-state h3 {
+    font-size: 20px;
+  }
+  
+  .empty-state p {
+    font-size: 14px;
+    margin-bottom: 24px;
+  }
+  
+  .create-first-widget-btn {
+    padding: 10px 20px;
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .klip-grid {
+    gap: 12px;
+    padding: 12px 0;
+  }
+  
+  .empty-icon {
+    width: 48px;
+    height: 48px;
+    margin-bottom: 16px;
+  }
+  
+  .empty-state h3 {
+    font-size: 18px;
+  }
+  
+  .empty-state p {
+    font-size: 13px;
+    margin-bottom: 20px;
+  }
+}
+
+/* Loading State for Grid */
+.klip-grid-loading {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 20px;
+  padding: 20px 0;
+}
+
+.klip-skeleton {
+  height: 280px;
+  background: linear-gradient(
+    90deg,
+    var(--bg-secondary) 25%,
+    var(--bg-tertiary) 50%,
+    var(--bg-secondary) 75%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+  border-radius: 12px;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}

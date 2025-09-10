@@ -1,0 +1,708 @@
+.klip-card {
+  background-color: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 20px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  min-height: 280px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.klip-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-hover);
+  border-color: var(--primary-color);
+}
+
+.klip-card.selected {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.klip-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 16px;
+  gap: 12px;
+}
+
+.klip-title-section {
+  flex: 1;
+  min-width: 0;
+}
+
+.klip-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: 0 0 6px 0;
+  line-height: 1.3;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.klip-type-badge {
+  display: inline-block;
+  padding: 2px 8px;
+  background-color: var(--bg-tertiary);
+  color: var(--text-secondary);
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border-radius: 12px;
+}
+
+.klip-actions {
+  display: flex;
+  gap: 4px;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.klip-card:hover .klip-actions {
+  opacity: 1;
+}
+
+.klip-action-btn {
+  width: 28px;
+  height: 28px;
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  background-color: var(--bg-primary);
+  color: var(--text-secondary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.klip-action-btn:hover {
+  color: var(--text-primary);
+  border-color: var(--primary-color);
+  background-color: var(--bg-tertiary);
+}
+
+.klip-action-btn.danger:hover {
+  color: var(--danger-color);
+  border-color: var(--danger-color);
+  background-color: rgba(239, 68, 68, 0.1);
+}
+
+.klip-content {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 16px;
+  min-height: 160px;
+}
+
+/* Content Containers */
+.klip-chart-container {
+  width: 100%;
+  height: 160px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.klip-metric-container {
+  width: 100%;
+  text-align: center;
+  padding: 20px 0;
+}
+
+.metric-main {
+  margin-bottom: 16px;
+}
+
+.metric-value {
+  display: block;
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1.1;
+  margin-bottom: 8px;
+}
+
+.metric-label {
+  display: block;
+  font-size: 14px;
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+.metric-change {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.metric-change.increase {
+  color: var(--success-color);
+}
+
+.metric-change.decrease {
+  color: var(--danger-color);
+}
+
+.metric-change.neutral {
+  color: var(--text-secondary);
+}
+
+.metric-comparison {
+  color: var(--text-muted);
+  font-weight: 400;
+}
+
+.klip-table-container {
+  width: 100%;
+  max-height: 160px;
+  overflow: hidden;
+}
+
+.table-wrapper {
+  position: relative;
+}
+
+.klip-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 12px;
+}
+
+.klip-table th {
+  background-color: var(--bg-tertiary);
+  color: var(--text-secondary);
+  font-weight: 600;
+  padding: 8px;
+  text-align: left;
+  border-bottom: 1px solid var(--border-color);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+
+.klip-table td {
+  padding: 8px;
+  border-bottom: 1px solid var(--border-color);
+  color: var(--text-primary);
+  max-width: 80px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.klip-table tr:hover {
+  background-color: var(--bg-tertiary);
+}
+
+.table-more {
+  text-align: center;
+  padding: 8px;
+  color: var(--text-muted);
+  font-size: 11px;
+  background-color: var(--bg-tertiary);
+  border-top: 1px solid var(--border-color);
+}
+
+.klip-text-container {
+  width: 100%;
+  padding: 16px 0;
+}
+
+.text-content {
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--text-primary);
+  text-align: left;
+}
+
+.klip-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-muted);
+  font-style: italic;
+}
+
+.klip-footer {
+  margin-top: auto;
+  padding-top: 16px;
+  border-top: 1px solid var(--border-color);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+
+.klip-meta {
+  flex: 1;
+  min-width: 0;
+}
+
+.klip-updated {
+  font-size: 11px;
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+.klip-legend {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.legend-color {
+  width: 8px;
+  height: 8px;
+  border-radius: 2px;
+  flex-shrink: 0;
+}
+
+.legend-label {
+  font-size: 11px;
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+/* Card Type Specific Styles */
+.klip-chart {
+  border-left: 3px solid var(--primary-color);
+}
+
+.klip-metric {
+  border-left: 3px solid var(--success-color);
+}
+
+.klip-table {
+  border-left: 3px solid var(--warning-color);
+}
+
+.klip-text {
+  border-left: 3px solid var(--text-secondary);
+}
+
+/* Card Loading State */
+.klip-card.loading {
+  pointer-events: none;
+}
+
+.klip-card.loading .klip-content {
+  opacity: 0.5;
+}
+
+.klip-card.loading::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    90deg,
+    transparent 25%,
+    rgba(255, 255, 255, 0.1) 50%,
+    transparent 75%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .klip-card {
+    padding: 16px;
+    min-height: 240px;
+  }
+  
+  .klip-title {
+    font-size: 15px;
+  }
+  
+  .klip-content {
+    min-height: 120px;
+    margin-bottom: 12px;
+  }
+  
+  .klip-chart-container {
+    height: 120px;
+  }
+  
+  .metric-value {
+    font-size: 28px;
+  }
+  
+  .klip-legend {
+    display: none;
+  }
+  
+  .klip-footer {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+}
+
+@media (max-width: 480px) {
+  .klip-card {
+    padding: 12px;
+    min-height: 200px;
+  }
+  
+  .klip-header {
+    margin-bottom: 12px;
+  }
+  
+  .klip-title {
+    font-size: 14px;
+  }
+  
+  .klip-type-badge {
+    font-size: 10px;
+    padding: 1px 6px;
+  }
+  
+  .klip-content {
+    min-height: 100px;
+    margin-bottom: 10px;
+  }
+  
+  .klip-chart-container {
+    height: 100px;
+  }
+  
+  .metric-value {
+    font-size: 24px;
+  }
+  
+  .metric-label {
+    font-size: 13px;
+  }
+  
+  .metric-change {
+    font-size: 12px;
+  }
+  
+  .klip-table {
+    font-size: 11px;
+  }
+  
+  .klip-table th,
+  .klip-table td {
+    padding: 6px;
+    max-width: 60px;
+  }
+  
+  .text-content {
+    font-size: 13px;
+  }
+}
+
+/* Dark mode adjustments */
+[data-theme="dark"] .klip-table th {
+  background-color: var(--bg-primary);
+}
+
+[data-theme="dark"] .klip-card:hover {
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3), 0 4px 6px -4px rgba(0, 0, 0, 0.3);
+}
+
+/* Animation delays for staggered loading */
+.klip-card:nth-child(1) { animation-delay: 0.1s; }
+.klip-card:nth-child(2) { animation-delay: 0.15s; }
+.klip-card:nth-child(3) { animation-delay: 0.2s; }
+.klip-card:nth-child(4) { animation-delay: 0.25s; }
+.klip-card:nth-child(5) { animation-delay: 0.3s; }
+.klip-card:nth-child(6) { animation-delay: 0.35s; }
+/* Add these CSS variable definitions to your main CSS file or create a new variables.css */
+
+:root {
+  /* Color Palette */
+  --primary-color: #3b82f6;
+  --primary-hover: #2563eb;
+  --success-color: #10b981;
+  --danger-color: #ef4444;
+  --warning-color: #f59e0b;
+  
+  /* Background Colors */
+  --bg-primary: #ffffff;
+  --bg-secondary: #f8fafc;
+  --bg-tertiary: #f1f5f9;
+  
+  /* Text Colors */
+  --text-primary: #1e293b;
+  --text-secondary: #64748b;
+  --text-muted: #94a3b8;
+  
+  /* Border and Shadow */
+  --border-color: #e2e8f0;
+  --shadow-hover: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+}
+
+/* Dark theme variables */
+[data-theme="dark"] {
+  --bg-primary: #0f172a;
+  --bg-secondary: #1e293b;
+  --bg-tertiary: #334155;
+  --text-primary: #f1f5f9;
+  --text-secondary: #cbd5e1;
+  --text-muted: #94a3b8;
+  --border-color: #475569;
+}
+
+/* Chart Container Fix */
+.chart-renderer {
+  width: 100%;
+  height: 100%;
+  min-height: 160px;
+  position: relative;
+}
+
+.klip-chart-container {
+  width: 100%;
+  height: 160px !important;
+  min-height: 160px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.klip-chart-container .recharts-wrapper {
+  width: 100% !important;
+  height: 100% !important;
+}
+
+/* Chart Empty/Error States */
+.chart-empty,
+.chart-unsupported {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+  color: var(--text-muted);
+  font-style: italic;
+  font-size: 14px;
+  text-align: center;
+  padding: 20px;
+}
+
+/* Preview Container Fixes */
+.previewContent {
+  min-height: 300px !important;
+  min-width: 300px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.previewContent .chart-renderer {
+  width: 100%;
+  height: 280px;
+  min-height: 280px;
+}
+
+/* Table Container Improvements */
+.klip-table-container {
+  width: 100%;
+  max-height: 160px;
+  overflow: auto;
+  border-radius: 6px;
+  border: 1px solid var(--border-color);
+}
+
+.klip-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 12px;
+  background: var(--bg-primary);
+}
+
+.klip-table th {
+  background-color: var(--bg-tertiary);
+  color: var(--text-secondary);
+  font-weight: 600;
+  padding: 8px 12px;
+  text-align: left;
+  border-bottom: 2px solid var(--border-color);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+  white-space: nowrap;
+}
+
+.klip-table td {
+  padding: 8px 12px;
+  border-bottom: 1px solid var(--border-color);
+  color: var(--text-primary);
+  font-size: 12px;
+}
+
+.klip-table tr:nth-child(even) {
+  background-color: var(--bg-secondary);
+}
+
+.klip-table tr:hover {
+  background-color: var(--bg-tertiary);
+}
+
+/* Preview Table Styles */
+.previewTable {
+  overflow: auto;
+  height: 100%;
+  width: 100%;
+  border-radius: 6px;
+  border: 1px solid var(--border-color);
+}
+
+.previewTable table {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--bg-primary);
+}
+
+.previewTable th,
+.previewTable td {
+  padding: 12px;
+  text-align: left;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.previewTable th {
+  background: var(--bg-tertiary);
+  font-weight: 600;
+  color: var(--text-primary);
+  font-size: 14px;
+}
+
+.previewTable td {
+  color: var(--text-secondary);
+  font-size: 14px;
+}
+
+.previewTable tr:nth-child(even) {
+  background-color: var(--bg-secondary);
+}
+
+/* Metric Styles */
+.previewMetric {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  text-align: center;
+  padding: 20px;
+}
+
+.metricValue {
+  font-size: 3rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+  line-height: 1;
+}
+
+.metricLabel {
+  font-size: 1.1rem;
+  color: var(--text-secondary);
+  margin-bottom: 1rem;
+  font-weight: 500;
+}
+
+.metricChange {
+  font-size: 0.95rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.metricChange.increase {
+  color: var(--success-color);
+}
+
+.metricChange.decrease {
+  color: var(--danger-color);
+}
+
+/* Text Content */
+.previewText {
+  height: 100%;
+  overflow: auto;
+  padding: 20px;
+}
+
+.textContent {
+  line-height: 1.6;
+  color: var(--text-primary);
+  font-size: 15px;
+}
+
+/* Responsive Fixes */
+@media (max-width: 768px) {
+  .klip-chart-container {
+    height: 140px !important;
+    min-height: 140px;
+  }
+  
+  .chart-renderer {
+    min-height: 140px;
+  }
+  
+  .previewContent .chart-renderer {
+    height: 250px;
+    min-height: 250px;
+  }
+  
+  .metricValue {
+    font-size: 2.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .klip-chart-container {
+    height: 120px !important;
+    min-height: 120px;
+  }
+  
+  .chart-renderer {
+    min-height: 120px;
+  }
+  
+  .previewContent .chart-renderer {
+    height: 200px;
+    min-height: 200px;
+  }
+  div .recharts-wrapper
+  .metricValue {
+    font-size: 2rem;
+  }
+}
