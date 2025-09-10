@@ -6,7 +6,7 @@ import Sidebar from './Sidebar';
 import Header from './Header';
 import KlipGrid from './KlipGrid';
 import EditorPanel from './EditorPanel';
-// import NotificationManager from './NotificationManager';
+import NotificationManager from './NotificationManager';
 import './Dashboard.css';
 
 const Dashboard = () => {
@@ -80,7 +80,7 @@ const Dashboard = () => {
       </div>
 
       {editorOpen && <EditorPanel />}
-      {/* <NotificationManager /> */}
+      <NotificationManager />
     </div>
   );
 };
